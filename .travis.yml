@@ -1,8 +1,8 @@
 language: csharp
-solution: NUnit.sln
+solution: ./NUnit/NUnit.sln
 install:
-  - nuget restore solution-name.sln
+  - nuget restore ./NUnit/NUnit.sln
   - nuget install NUnit.Console -Version 3.9.0 -OutputDirectory testrunner
 script:
-  - msbuild /p:Configuration=Release NUnit.sln
-  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./Sample.Test.Tests/bin/Release/Sample.Test.Tests.dll
+  - msbuild /p:Configuration=Release ./NUnit/NUnit.sln
+  - mono ./testrunner/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe ./NUnit/Sample.Test/bin/Release/Sample.Test.dll
